@@ -291,6 +291,7 @@ library.button1down = library.signal.new()
 library.button1up   = library.signal.new()
 library.mousemove   = library.signal.new()
 library.unloaded    = library.signal.new();
+library.unloadedBool = false
 
 local button1down, button1up, mousemove = library.button1down, library.button1up, library.mousemove
 local mb1down = false;
@@ -580,6 +581,7 @@ end
 library.utility = utility
 
 function library:Unload()
+    library.unloadedBool = true
     library.unloaded:Fire();
     for _,c in next, self.connections do
         c:Disconnect()
