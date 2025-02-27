@@ -589,7 +589,7 @@ function library:Unload()
     end
     table.clear(self.drawings)
     getgenv().library = nil
-    screenGui:Destroy()
+    --library.screenGui:Destroy()
 end
 
 function library:init()
@@ -716,22 +716,23 @@ function library:init()
     --    end
     --end
 
-    local screenGui = Instance.new('ScreenGui');
-    if syn then syn.protect_gui(screenGui); end
-    screenGui.Parent = game:GetService('CoreGui');
-    screenGui.Enabled = true;
-    local ImageButton = utility:Instance('ImageButton', {
-        Parent = screenGui,
-        Visible = true,
-        Modal = true,
-        Size = UDim2.new(0, 535, 0, 660),
-        ZIndex = 9999999999,
-        Transparency = 1;
-    })
+    --local screenGui = Instance.new('ScreenGui');
+    --library.screenGui = screenGui
+    --if syn then syn.protect_gui(screenGui); end
+    --screenGui.Parent = game:GetService('CoreGui');
+    --screenGui.Enabled = true;
+    --local ImageButton = utility:Instance('ImageButton', {
+    --    Parent = screenGui,
+    --    Visible = true,
+    --    Modal = true,
+    --    Size = UDim2.new(0, 535, 0, 660),
+    --    ZIndex = 9999999999,
+    --    Transparency = 1;
+    --})
 
-    utility:Connection(library.unloaded, function()
-        screenGui:Destroy()
-    end)
+    --utility:Connection(library.unloaded, function()
+    --    screenGui:Destroy()
+    --end)
 
     utility:Connection(inputservice.InputBegan, function(input, gpe)
         if self.hasInit then
@@ -828,8 +829,8 @@ function library:init()
     
     function self:SetOpen(bool)
         self.open = bool;
-        screenGui.Enabled = bool;
-        ImageButton.Visible = bool
+        --screenGui.Enabled = bool;
+        --ImageButton.Visible = bool
 
 
         --updateCursor();
@@ -1347,7 +1348,7 @@ function library:init()
             utility:Connection(mousemove, function(pos)
                 if dragging then
                     if window.open then
-                        ImageButton.Position = objStart + newUDim2(0, pos.X+20, 0, pos.Y+20) - mouseStart - UDim2.new(0,10,0,10)
+                        --ImageButton.Position = objStart + newUDim2(0, pos.X+20, 0, pos.Y+20) - mouseStart - UDim2.new(0,10,0,10)
                         objs.background.Position = objStart + newUDim2(0, pos.X, 0, pos.Y) - mouseStart;
                     else
                         dragging = false
