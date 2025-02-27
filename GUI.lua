@@ -580,6 +580,8 @@ end
 library.utility = utility
 
 function library:Unload()
+    ImageButton:Destroy()
+    screenGui:Destroy()
     library.unloaded:Fire();
     for _,c in next, self.connections do
         c:Disconnect()
@@ -719,11 +721,11 @@ function library:init()
     if syn then syn.protect_gui(screenGui); end
     screenGui.Parent = game:GetService('CoreGui');
     screenGui.Enabled = true;
-    utility:Instance('ImageButton', {
+    local ImageButton = utility:Instance('ImageButton', {
         Parent = screenGui,
         Visible = true,
         Modal = true,
-        Size = UDim2.new(1,0,1,0),
+        Size = UDim2.new(0, 535, 0, 660),
         ZIndex = 9999999999,
         Transparency = 1;
     })
@@ -1345,6 +1347,7 @@ function library:init()
             utility:Connection(mousemove, function(pos)
                 if dragging then
                     if window.open then
+                        ImageButton.Position = objStart + newUDim2(0, pos.X+20, 0, pos.Y+20) - mouseStart - UDim2.new(0,10,0,10)
                         objs.background.Position = objStart + newUDim2(0, pos.X, 0, pos.Y) - mouseStart;
                     else
                         dragging = false
