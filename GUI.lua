@@ -580,8 +580,6 @@ end
 library.utility = utility
 
 function library:Unload()
-    ImageButton:Destroy()
-    screenGui:Destroy()
     library.unloaded:Fire();
     for _,c in next, self.connections do
         c:Disconnect()
@@ -591,6 +589,8 @@ function library:Unload()
     end
     table.clear(self.drawings)
     getgenv().library = nil
+    ImageButton:Destroy()
+    screenGui:Destroy()
 end
 
 function library:init()
