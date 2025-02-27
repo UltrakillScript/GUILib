@@ -1348,7 +1348,7 @@ function library:init()
             utility:Connection(mousemove, function(pos)
                 if dragging then
                     if window.open then
-                        ImageButton.Position = objStart + newUDim2(0, pos.X+20, 0, pos.Y+20) - mouseStart - UDim2.new(0,10,0,10)
+                        ImageButton.Position = objStart + newUDim2(0, pos.X+10, 0, pos.Y+10) - mouseStart - UDim2.new(0,10,0,10)
                         objs.background.Position = objStart + newUDim2(0, pos.X, 0, pos.Y) - mouseStart;
                     else
                         dragging = false
