@@ -830,6 +830,7 @@ function library:init()
     function self:SetOpen(bool)
         self.open = bool;
         screenGui.Enabled = bool;
+        ImageButton.Visible = bool
 
 
         --updateCursor();
