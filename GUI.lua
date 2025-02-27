@@ -645,7 +645,7 @@ function library:init()
                 end
             end
             setByConfig = false
-        end)
+        end) 
 
         if s then
             self:SendNotification('Successfully loaded config: '..name, 5, c3new(0,1,0));
