@@ -705,7 +705,7 @@ function library:init()
         self.cursor1.Visible = self.open
         self.cursor2.Visible = self.open
         if self.cursor1.Visible then
-            local pos = inputservice:GetMouseLocation();
+            local pos = inputservice:GetMouseLocation() + Vector2.new(5,5);
             self.cursor1.PointA = pos;
             self.cursor1.PointB = pos + newVector2(16,5);
             self.cursor1.PointC = pos + newVector2(5,16);
