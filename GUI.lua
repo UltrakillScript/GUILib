@@ -713,7 +713,7 @@ function library:init()
     --        self.cursor2.PointB = self.cursor1.PointB + newVector2(1, 1)
     --        self.cursor2.PointC = self.cursor1.PointC + newVector2(1, 1)
     --    end
-    end
+    --end
 
     local screenGui = Instance.new('ScreenGui');
     if syn then syn.protect_gui(screenGui); end
