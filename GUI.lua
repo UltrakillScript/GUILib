@@ -4657,15 +4657,21 @@ function library:init()
     end
 
     local lasttick = tick();
-    utility:Connection(runservice.RenderStepped, function(step)
-        library.stats.fps = floor(1/step)
-        library.stats.ping = stats.Network.ServerStatsItem["Data Ping"]:GetValue()
-        library.stats.sendkbps = stats.DataSendKbps
-        library.stats.receivekbps = stats.DataReceiveKbps
+    local ping
+    ping = utility:Connection(runservice.RenderStepped, function(step)
+        local succ,err = pcall(function()
+            library.stats.fps = floor(1/step)
+            library.stats.ping = stats.Network.ServerStatsItem["Data Ping"]:GetValue()
+            library.stats.sendkbps = stats.DataSendKbps
+            library.stats.receivekbps = stats.DataReceiveKbps
 
-        if (tick()-lasttick)*1000 > library.watermark.refreshrate then
-            lasttick = tick()
-            library.watermark:Update()
+            if (tick()-lasttick)*1000 > library.watermark.refreshrate then
+                lasttick = tick()
+                library.watermark:Update()
+            end
+        end)
+        if err then
+            ping:Disconnect()
         end
     end)
 
