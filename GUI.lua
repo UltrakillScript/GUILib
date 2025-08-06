@@ -924,7 +924,7 @@ function library:init()
                 Text = message;
                 Outline = true;
                 Font = 2;
-                Size = 13;
+                Size = 20;
                 ZIndex = z+4;
                 Parent = notification.background;
             })
@@ -943,7 +943,7 @@ function library:init()
 
         task.spawn(function()
             self:UpdateNotifications();
-            notification.background.Size = newUDim2(0, notification.text.TextBounds.X + 20, 0, 19)
+            notification.background.Size = newUDim2(0, notification.text.TextBounds.X + 20, 0, 40)
             task.wait();
             utility:Tween(notification.background, 'Position', newUDim2(0,0,0, 0), .1);
             task.wait(time);
