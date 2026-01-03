@@ -358,7 +358,7 @@ do
             local startVal = obj[prop];
             local a = 0;
             local tween = {
-                Completed = library.signal.new();
+                Completed = library.signal();
             };
 
             library.tweens[obj] = library.tweens[obj] or {};
@@ -445,12 +445,12 @@ do
             AbsolutePosition = newVector2(0,0);
             Hover = false;
             Visible = true;
-            MouseButton1Down = library.signal.new();
-            MouseButton2Down = library.signal.new();
-            MouseButton1Up = library.signal.new();
-            MouseButton2Up = library.signal.new();
-            MouseEnter = library.signal.new();
-            MouseLeave = library.signal.new();
+            MouseButton1Down = library.signal();
+            MouseButton2Down = library.signal();
+            MouseButton1Up = library.signal();
+            MouseButton2Up = library.signal();
+            MouseEnter = library.signal();
+            MouseLeave = library.signal();
             Class = class;
         }
 
