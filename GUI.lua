@@ -59,7 +59,7 @@ local library = {
         ['colortrans'] = 'https://raw.githubusercontent.com/portallol/luna/main/modules/trans.png';
     };
     numberStrings = {['Zero'] = 0, ['One'] = 1, ['Two'] = 2, ['Three'] = 3, ['Four'] = 4, ['Five'] = 5, ['Six'] = 6, ['Seven'] = 7, ['Eight'] = 8, ['Nine'] = 9};
-    signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/AlexanderLindholt/SignalPlus/refs/heads/main/SignalPlus.luau'))();
+    signal = loadstring(game:HttpGet('https://raw.githubusercontent.com/drillygzzly/Other/main/1414'))();
     open = false;
     opening = false;
     hasInit = false;
@@ -287,10 +287,10 @@ local keyNames = {
     [Enum.UserInputType.MouseButton3] = 'MB3';
 }
 
-library.button1down = library.signal.new()
-library.button1up   = library.signal.new()
-library.mousemove   = library.signal.new()
-library.unloaded    = library.signal.new();
+library.button1down = library.signal()
+library.button1up   = library.signal()
+library.mousemove   = library.signal()
+library.unloaded    = library.signal();
 library.unloadedBool = false
 
 local button1down, button1up, mousemove = library.button1down, library.button1up, library.mousemove
